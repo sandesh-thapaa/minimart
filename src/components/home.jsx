@@ -17,6 +17,7 @@ function Home() {
             <p>Best Deal Online on Smart Watches</p>
             <h1>SMART WEARABLE.</h1>
             <p>UP to 80% OFF</p>
+            <button className="shop-button">Shop Now</button>
           </div>
           <img src={watch} alt="watch" className="watch" />
         </div>

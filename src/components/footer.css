@@ -49,7 +49,9 @@ h5{
     gap: 6px;
     padding: 8px;
     border-radius: 6px;
+    cursor: pointer;
 }
+
 .app-store-download-text{
     font-size: 0.6rem;
 }
