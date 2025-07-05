@@ -3,21 +3,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+h5{
+    margin: 0;
+}
 .footer-container{
-    width: 100vw;
+    width: 100%;
     height: 500px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     background-color: #008ECC;
-}
-.footer{
-    width: 92vw;
-    height: 500px;
-    background-color: red;
     color: #FFFFFF;
 }
+.footer{
+    display: flex;
+    justify-content: center;
+    width: 90vw;
+    height: 450px;
+}
 .footer-left{
-    background-color: red;
     width: 30vw;
     height: 100%;
     padding: 30px;
@@ -28,5 +33,53 @@
 .contact{
     display: flex;
     gap: 10px;
+    margin: 20px 0px 20px 0px;
+}
+.app{
+    margin-top:30px;
+    width: 26vw;
+    display: flex;
+    gap: 20px;
+}
+.app-store{
+    background-color: #000000;
+    height: 50px;
+    width: 166px;
+    display: flex;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 6px;
+}
+.app-store-download-text{
+    font-size: 0.6rem;
+}
+.footer-right{
+    display: flex;
+    width: 70vw;
+    height: 100%;
+}
+.footer-right-grid{
+    width: 25vw;
+    height:100%;
+    padding: 30px;;
+}
+.footer-text{
+    font-size: 1.4rem;
+    text-decoration: underline;
+    text-decoration-color: #FFFFFF;
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 12px;
+}
+.footer-links{
     margin-top: 20px;
+    height: 90%;
+}
+.footer-link li{
+    font-size: 1rem;
+    color: #FFFFFF;
+    margin-top: 10px;
+    font-weight: 400;
+}
+.copyright{
+    margin: 12px;
 }
