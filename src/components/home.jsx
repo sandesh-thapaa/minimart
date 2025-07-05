@@ -6,6 +6,7 @@ import cosmetics from "../assets/cosmetics.png";
 import electonics from "../assets/electronics.png";
 import furniture from "../assets/furniture.png";
 import decor from "../assets/decor1.avif";
+import essential from "../assets/essential.png";
 import { FaAngleRight } from "react-icons/fa";
 
 function Home() {
@@ -151,51 +152,31 @@ function Home() {
           </div>
           <div className="categories-card">
             <div className="category">
-              <img
-                src={cosmetics}
-                alt="category"
-                className="category-image"
-              />
+              <img src={cosmetics} alt="category" className="category-image" />
             </div>
             <p>Cosmetics</p>
           </div>
           <div className="categories-card">
             <div className="category">
-              <img
-                src={electonics}
-                alt="category"
-                className="category-image"
-              />
+              <img src={electonics} alt="category" className="category-image" />
             </div>
             <p>Electronics</p>
           </div>
           <div className="categories-card">
             <div className="category">
-              <img
-                src={furniture}
-                alt="category"
-                className="category-image"
-              />
+              <img src={furniture} alt="category" className="category-image" />
             </div>
             <p>Furniture</p>
           </div>
           <div className="categories-card">
             <div className="category">
-              <img
-                src={watch}
-                alt="category"
-                className="category-image"
-              />
+              <img src={watch} alt="category" className="category-image" />
             </div>
             <p>Watches</p>
           </div>
           <div className="categories-card">
             <div className="category">
-              <img
-                src={electonics}
-                alt="category"
-                className="category-image"
-              />
+              <img src={electonics} alt="category" className="category-image" />
             </div>
             <p>Decor</p>
           </div>
@@ -208,6 +189,68 @@ function Home() {
               />
             </div>
             <p>Accessories</p>
+          </div>
+        </div>
+        {/* Daily essentials */}
+        <div className="products">
+          <div className="product-text">
+            <p>Daily &nbsp;</p>
+            <a href="#" className="blue">
+              Essentials
+            </a>
+          </div>
+          <div className="view-all">
+            <a href="#" className="product-text">
+              View all
+            </a>
+            <a href="#">
+              <FaAngleRight />
+            </a>
+          </div>
+        </div>
+        <div className="line"></div>
+        <div className="categories-container">
+          <div className="essential-card">
+            <div className="essentials">
+              <img src={essential} alt="category" className="essential-image" />
+            </div>
+            <p className="essential-text">Daily Essentials</p>
+            <h6>UP to 50% OFF</h6>
+          </div>
+          <div className="essential-card">
+            <div className="essentials">
+              <img src={essential} alt="category" className="essential-image" />
+            </div>
+            <p className="essential-text">Vegetables</p>
+            <h6>UP to 50% OFF</h6>
+          </div>
+          <div className="essential-card">
+            <div className="essentials">
+              <img src={essential} alt="category" className="essential-image" />
+            </div>
+            <p className="essential-text">Fruits</p>
+            <h6>UP to 50% OFF</h6>
+          </div>
+          <div className="essential-card">
+            <div className="essentials">
+              <img src={essential} alt="category" className="essential-image" />
+            </div>
+            <p className="essential-text">Strawberry</p>
+            <h6>UP to 50% OFF</h6>
+          </div>
+          <div className="essential-card">
+            <div className="essentials">
+              <img src={essential} alt="category" className="essential-image" />
+            </div>
+            <p className="essential-text">Mango</p>
+            <h6>UP to 50% OFF</h6>
+          </div>
+          <div className="essential-card">
+            <div className="essentials">
+              <img src={essential} alt="category" className="essential-image" />
+            </div>
+            <p className="essential-text">Cherry</p>
+            <h6>UP to 50% OFF</h6>
           </div>
         </div>
       </div>
