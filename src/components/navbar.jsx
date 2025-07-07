@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import { IoBagOutline } from "react-icons/io5";
 import { IoSearch } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
@@ -9,24 +9,24 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="container-fluid">
-        <a className="navbar-brand" href="#">
-          <a className="blue"><IoBagOutline size={50} /></a>
-          <h2 class="logo-name">MiniMart</h2>
-        </a>
+        <Link className="navbar-brand" to="/">
+          <IoBagOutline size={50} style={{color: "#008ECC"}}/>
+          <h2 className="logo-name">MiniMart</h2>
+        </Link>
         <div className="navbar-right">
           <ul className="navbar-link">
-            <a href="#">
-              <li>Shop</li>
-            </a>
-            <a href="#">
-              <li>On Sale</li>
-            </a>
-            <a href="#">
-              <li>New Arrivals</li>
-            </a>
-            <a href="#">
-              <li>Brands</li>
-            </a>
+            <li>
+              <Link to="/shop">Shop</Link>
+            </li>
+            <li>
+              <a href="#">On Sale</a>
+            </li>
+            <li>
+              <a href="#">New Arrivals</a>
+            </li>
+            <li>
+              <a href="#">Brands</a>
+            </li>
           </ul>
           <div className="search">
             <a href="#" className="blue"><IoSearch size={24} /></a>

@@ -1,0 +1,16 @@
+
+.shop-container{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    background-color: black;
+}
+.shop{
+    background-color: red;
+    width: 90vw;
+}
+.shop-left{
+    width: 20vw;
+    height: 100vh;
+    background-color: aqua;
+}
