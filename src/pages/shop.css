@@ -100,22 +100,36 @@ li{
 }
 .price-text{
     display: flex;
-    gap: 4px;
-    justify-content:center;
+    gap: 6px;
     align-items: center;
     font-size: 0.8rem;
 }
 .price-box{
     display: flex;
+    width: 80px;
     align-items: center;
-    border: 2px solid #008ECC;
+    border-radius: 6px;
+    background-color: #f5f5f5;
+    padding-left: 6px;
 }
 .price-input{
+    background-color: #f5f5f5;
+    border-radius: 6px;
     font-size: 0.8rem;
-    width: 65%;
+    width: 100%;
     padding: 4px;
     border: none;
+    outline: none;
 }
+.price-button{   
+    background-color: #008ECC;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    width: 36px;
+    padding: 5px 0px;
+}
+
 
 
 /* shop right */
@@ -137,39 +151,51 @@ li{
     align-items: center;
     gap: 4px;
     padding: 4px 6px;
-    border: 1px solid #008ECC;
+    border: 2px solid #008ECC;
     border-radius: 6px;
+    background-color: #f5f5f5;
     color: #222222;
 }
 
 .sort-by{
     display: flex;
     gap: 6px; 
+    padding: 4px;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    border: 2px solid #f5f5f5
 }
 .sort-by select{
     font-weight: 500;
-    background: none;
+    background: #f5f5f5;
     border: none;
-    color: #008ECC;
-
+    color: #666666;
+    outline: none;
+    cursor: pointer;
+    width: 150px;
+}
+.sort-by select:hover{
+    color: #222222;
 }
 .sort-by-list{
     font-weight: 500;
+    cursor: pointer;
+    color: #666666
 }
 .product-container{
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     padding: 12px;
-    gap: 20px;
+    gap: 18px;
     
 }
 .card{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 360px;
-    max-width: 17vw;
+    height: 410px;
+    max-width: 16.5vw;
     border-radius: 10px;
     border: 1px solid #f5f5f5;
 }
@@ -183,12 +209,13 @@ li{
     border-top-right-radius: 12px;
 }
 .card-body{
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #f5f5f5;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
 .card-title {
+    margin-bottom: 2px;
     margin-left: 4px;
     font-size: 0.9rem;
     font-weight: 450;
@@ -205,14 +232,15 @@ li{
 }
 .price{
     margin-left: 6px;
+    margin-top: 2px;
     color: #222222;
     display: flex;
     gap: 10px;
 }
 .btn{
-    margin-top: 6px;
+    margin-top: 4px;
     margin-left: 4px;
-    border-radius: 26px;
-    font-size: 1rem;
+    border-radius: 12px;
+    font-size: 0.9rem;
     background-color: #008ECC;
 }

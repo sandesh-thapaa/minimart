@@ -12,10 +12,32 @@
 .blue{
     color:#008ECC;
 }
+.carousel-control-next{
+    width: auto;
+}
+.carousel-control-prev{
+    width: auto;
+}
+
+.d-block{
+    border-radius: 16px;
+}
+.slide{
+    transition: none;
+    width: 1230px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
 .hero-section{
     margin-top: 10px;
     background-color: #212844;
-    height: 60vh;
+    min-height: 60vh;
     width: 90vw;
     border-radius: 16px;
     color: white;

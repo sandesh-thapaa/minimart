@@ -7,13 +7,50 @@ import electonics from "../assets/electronics.png";
 import furniture from "../assets/furniture.png";
 import decor from "../assets/decor1.avif";
 import essential from "../assets/essential.png";
+import watchScroll from "../assets/watch-scroll.png";
 import { FaAngleRight } from "react-icons/fa";
 
 function Home() {
   return (
     <>
       <div className="body">
-        <div className="hero-section">
+        <div
+          id="carouselExampleAutoplaying"
+          className="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div className="carousel-inner">
+            <div className="carousel-item active">
+              <img src={watchScroll} className="d-block " alt="..." />
+            </div>
+            <div className="carousel-item">
+              <img src={watchScroll} className="d-block " alt="..." />
+            </div>
+            <div className="carousel-item">
+              <img src={watchScroll} className="d-block " alt="..." />
+            </div>
+          </div>
+          <button
+            className="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="prev"
+          >
+            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Previous</span>
+          </button>
+          <button
+            className="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleAutoplaying"
+            data-bs-slide="next"
+          >
+            <span className="carousel-control-next-icon" aria-hidden="true"></span>
+            <span className="visually-hidden">Next</span>
+          </button>
+        </div>
+
+        {/* <div className="hero-section">
           <div className="hero-text">
             <p>Best Deal Online on Smart Watches</p>
             <h1>SMART WEARABLE.</h1>
@@ -21,7 +58,7 @@ function Home() {
             <button className="shop-button">Shop Now</button>
           </div>
           <img src={watch} alt="watch" className="watch" />
-        </div>
+        </div> */}
         <div className="products">
           <div className="product-text">
             <p>Grab the best deal on &nbsp;</p>
@@ -49,8 +86,8 @@ function Home() {
             <div className="product-details">
               <p className="product-name">Galaxy S25 Ultra</p>
               <div className="price-detail">
-                <p className="product-price">रु104999 </p>
-                <p className="actual-price">रु83999</p>
+                <p className="product-price">रु83,999 </p>
+                <p className="actual-price">रु1,04,999</p>
               </div>
               <div className="line"></div>
               <p className="discount">Save - रु20999</p>
@@ -65,8 +102,8 @@ function Home() {
             <div className="product-details">
               <p className="product-name">Galaxy S25 Ultra</p>
               <div className="price-detail">
-                <p className="product-price">रु104999 </p>
-                <p className="actual-price">रु83999</p>
+                <p className="product-price">रु83,999 </p>
+                <p className="actual-price">रु1,04,999</p>
               </div>
               <div className="line"></div>
               <p className="discount">Save - रु20999</p>
@@ -81,8 +118,8 @@ function Home() {
             <div className="product-details">
               <p className="product-name">Galaxy S25 Ultra</p>
               <div className="price-detail">
-                <p className="product-price">रु104999 </p>
-                <p className="actual-price">रु83999</p>
+                <p className="product-price">रु83,999 </p>
+                <p className="actual-price">रु1,04,999</p>
               </div>
               <div className="line"></div>
               <p className="discount">Save - रु20999</p>
@@ -97,8 +134,8 @@ function Home() {
             <div className="product-details">
               <p className="product-name">Galaxy S25 Ultra</p>
               <div className="price-detail">
-                <p className="product-price">रु104999 </p>
-                <p className="actual-price">रु83999</p>
+                <p className="product-price">रु83,999 </p>
+                <p className="actual-price">रु1,04,999</p>
               </div>
               <div className="line"></div>
               <p className="discount">Save - रु20999</p>
@@ -113,8 +150,8 @@ function Home() {
             <div className="product-details">
               <p className="product-name">Galaxy S25 Ultra</p>
               <div className="price-detail">
-                <p className="product-price">रु104999 </p>
-                <p className="actual-price">रु83999</p>
+                <p className="product-price">रु83,999 </p>
+                <p className="actual-price">रु1,04,999</p>
               </div>
               <div className="line"></div>
               <p className="discount">Save - रु20999</p>
