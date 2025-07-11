@@ -25,7 +25,7 @@ function Navbar() {
               <a href="#">New Arrivals</a>
             </li>
             <li>
-              <a href="#">Brands</a>
+              <Link to="/contact">Contact</Link>
             </li>
           </ul>
           <div className="search">

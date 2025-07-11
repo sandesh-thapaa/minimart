@@ -3,6 +3,7 @@ import Navbar from "./components/navbar"
 import Home from"./pages/home"
 import Footer from"./components/footer"
 import Shop from "./pages/shop"
+import Contact from "./pages/contact"
 <comp></comp>
 function App() {
 
@@ -12,6 +13,7 @@ function App() {
      <Routes>
      <Route path="/" element={<Home/>}/>
      <Route path="/shop" element={<Shop/>}/>
+     <Route path="/contact" element={<Contact/>}/>
      </Routes>
      <Footer/>
     </>
