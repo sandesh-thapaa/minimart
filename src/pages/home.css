@@ -22,8 +22,25 @@
 .d-block{
     border-radius: 16px;
 }
+.carousel-item-next{
+    background-color: #212844;
+}
+.carousel-item-start{
+    background-color: #212844;
+
+}
+.carousel-item-end{
+    background-color: #212844;
+
+}
+.carousel-item-prev{
+    background-color: #212844;
+
+}
+.carousel-inner{
+    border-radius: 16px;
+}
 .slide{
-    transition: none;
     width: 1230px;
     cursor: pointer;
 }

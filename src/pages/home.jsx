@@ -7,7 +7,9 @@ import electonics from "../assets/electronics.png";
 import furniture from "../assets/furniture.png";
 import decor from "../assets/decor1.avif";
 import essential from "../assets/essential.png";
-import watchScroll from "../assets/watch-scroll.png";
+import heroImage1 from "../assets/hero-image1.png";
+import heroImage2 from "../assets/hero-image2.png";
+import heroImage3 from "../assets/hero-image3.png";
 import { FaAngleRight } from "react-icons/fa";
 
 function Home() {
@@ -21,13 +23,13 @@ function Home() {
         >
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img src={watchScroll} className="d-block " alt="..." />
+              <img src={heroImage1} className="d-block " alt="..." />
             </div>
             <div className="carousel-item">
-              <img src={watchScroll} className="d-block " alt="..." />
+              <img src={heroImage2} className="d-block " alt="..." />
             </div>
             <div className="carousel-item">
-              <img src={watchScroll} className="d-block " alt="..." />
+              <img src={heroImage3} className="d-block " alt="..." />
             </div>
           </div>
           <button
@@ -56,15 +58,6 @@ function Home() {
           </button>
         </div>
 
-        {/* <div className="hero-section">
-          <div className="hero-text">
-            <p>Best Deal Online on Smart Watches</p>
-            <h1>SMART WEARABLE.</h1>
-            <p>UP to 80% OFF</p>
-            <button className="shop-button">Shop Now</button>
-          </div>
-          <img src={watch} alt="watch" className="watch" />
-        </div> */}
         <div className="products">
           <div className="product-text">
             <p>Grab the best deal on &nbsp;</p>

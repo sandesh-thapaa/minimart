@@ -1,4 +1,7 @@
 import "./shop.css";
+import ShopCard from "../components/shop_card";
+
+
 import samsung from "../assets/samsung.png";
 import iphone from "../assets/iphone.png";
 import nothing from "../assets/nothing.png";
@@ -14,8 +17,26 @@ import { MdStarHalf } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
 import { FaAngleDown } from "react-icons/fa";
+import { FaAngleRight } from "react-icons/fa";
+import { CgLogIn } from "react-icons/cg";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+
 
 function Shop() {
+  
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://fakestoreapi.com/products").then((res) => {
+      setProducts(res.data);
+      console.log(res.data);
+    }).catch((err) => {
+      console.log("Error fetching data" , err);
+    });
+  }, []);
+
   return (
     <>
       <div className="shop-container">
@@ -26,38 +47,65 @@ function Shop() {
               <div className="category-list">
                 <ul>
                   <li>
-                    <a href="#" className="category-title">
-                      Mobiles
+                    <a href="#" className="category-title category-selected">
+                      <div >
+                      Mobiles <FaAngleDown />
+                      </div>
+                      <div className="sub-categories">
+                        <ul>
+                        <li>
+                          <a href="#" className="category-selected">smartphones</a>
+                        </li>
+                        <li>
+                          <a href="#">Mobile Accessories</a>
+                        </li>
+                        <li>
+                          <a href="#">Mobile Broadband Devices</a>
+                        </li>
+                        </ul>
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
-                      Tablets
+                      <div>
+                      Tablets <FaAngleRight />
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
-                      Laptops
+                      <div>
+                      Laptops <FaAngleRight />
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
-                      Headphones
+                      <div>
+                      Headphones <FaAngleRight />
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
-                      Cameras
+                      <div>
+                      Cameras <FaAngleRight />
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
-                      Wearables
+                      <div>
+                      Wearables <FaAngleRight />
+                      </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
-                      Accessories
+                      <div> 
+                      Accessories <FaAngleRight />
+                      </div>
                     </a>
                   </li>
                 </ul>
@@ -207,7 +255,17 @@ function Shop() {
               </div>
             </div>
             <div className="product-container">
-              <div className="card">
+              {products.map((item) => ( 
+              <ShopCard
+              key={item.id}
+              image={item.image}
+              card_title={item.title}
+              reviews={item.rating.count}
+              discounted_price={item.price}
+              // actual_price={2000}
+              />
+              ))};
+              {/* <div className="card">
                 <img src={samsung} className="card-img-top" alt="watch" />
                 <div className="card-body">
                   <a href="#">
@@ -279,8 +337,8 @@ function Shop() {
                     Add to Cart
                   </a>
                 </div>
-              </div>
-              <div className="card">
+              </div> */}
+              {/* <div className="card">
                 <img src={nothing} className="card-img-top" alt="watch" />
                 <div className="card-body">
                   <a href="#">
@@ -349,8 +407,8 @@ function Shop() {
                     Add to Cart
                   </a>
                 </div>
-              </div>
-              <div className="card">
+              </div> */}
+              {/* <div className="card">
                 <img src={xiaomi} className="card-img-top" alt="watch" />
                 <div className="card-body">
                   <a href="#">
@@ -489,7 +547,7 @@ function Shop() {
                     Add to Cart
                   </a>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
