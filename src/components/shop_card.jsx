@@ -5,7 +5,7 @@ import { FaAngleDown } from "react-icons/fa";
 
 import samsung from "../assets/samsung.png";
 
-function ShopCard({image, card_title, reviews, discounted_price, actual_price} ) {
+function ShopCard({image, card_title, description, category, reviews, discounted_price, actual_price, onAddToCart} ) {
   return (
     <>
       <div className="card">
@@ -16,7 +16,11 @@ function ShopCard({image, card_title, reviews, discounted_price, actual_price} )
               {card_title}
             </h5>
           </a>
-          <div
+          <div className="card-description">{description}</div>
+          <span className="card-category">
+            {category}
+          </span >
+          {/* <div                  
             className="stars-container"
             style={{ padding: "0px", margin: "0px" }}
           >
@@ -33,14 +37,14 @@ function ShopCard({image, card_title, reviews, discounted_price, actual_price} )
             <a href="#" style={{ fontSize: "0.8rem" }}>
               {reviews}
             </a>
-          </div>
+          </div> */}
           <div className="price">
             <p className="card-text"> रु{discounted_price}</p>
             <p className="actual-price">{actual_price}</p>
           </div>
-          <a href="#" className="btn btn-primary">
+          <button onClick={onAddToCart} href="#" className="btn btn-primary">
             Add to Cart
-          </a>
+          </button>
         </div>
       </div>
     </>

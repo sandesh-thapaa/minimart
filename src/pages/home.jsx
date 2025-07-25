@@ -1,4 +1,8 @@
 import "./home.css";
+import { useNavigate } from "react-router-dom";
+
+
+
 import watch from "../assets/watch.avif";
 import galaxyPhone from "../assets/galaxy-phone.avif";
 import accessories from "../assets/accessories.png";
@@ -13,6 +17,10 @@ import heroImage3 from "../assets/hero-image3.png";
 import { FaAngleRight } from "react-icons/fa";
 
 function Home() {
+  const navigate = useNavigate();
+  const handleShopPage = () => {
+    navigate("/shop");
+  }; 
   return (
     <>
       <div className="body">
@@ -20,6 +28,7 @@ function Home() {
           id="carouselExampleAutoplaying"
           className="carousel slide"
           data-bs-ride="carousel"
+          onClick={handleShopPage}
         >
           <div className="carousel-inner">
             <div className="carousel-item active">

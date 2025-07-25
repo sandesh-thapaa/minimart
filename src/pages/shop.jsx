@@ -1,7 +1,6 @@
 import "./shop.css";
 import ShopCard from "../components/shop_card";
 
-
 import samsung from "../assets/samsung.png";
 import iphone from "../assets/iphone.png";
 import nothing from "../assets/nothing.png";
@@ -11,31 +10,33 @@ import xiaomi from "../assets/xiaomi.png";
 import motorala from "../assets/motorala.png";
 import redmi from "../assets/redmi.png";
 
-
 import { MdStar } from "react-icons/md";
 import { MdStarHalf } from "react-icons/md";
 import { FaCircleCheck } from "react-icons/fa6";
 import { FaMinus } from "react-icons/fa";
-import { FaAngleDown } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
 import { CgLogIn } from "react-icons/cg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-
-
 function Shop() {
-  
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      setProducts(res.data);
-      console.log(res.data);
-    }).catch((err) => {
-      console.log("Error fetching data" , err);
-    });
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((res) => {
+        setProducts(res.data.slice(0,6));
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log("Error fetching data", err);
+      });
   }, []);
+
+  function handleAddToCart(product) {
+    console.log("Added to cart:", product);
+  }
 
   return (
     <>
@@ -48,63 +49,50 @@ function Shop() {
                 <ul>
                   <li>
                     <a href="#" className="category-title category-selected">
-                      <div >
-                      Mobiles <FaAngleDown />
-                      </div>
-                      <div className="sub-categories">
-                        <ul>
-                        <li>
-                          <a href="#" className="category-selected">smartphones</a>
-                        </li>
-                        <li>
-                          <a href="#">Mobile Accessories</a>
-                        </li>
-                        <li>
-                          <a href="#">Mobile Broadband Devices</a>
-                        </li>
-                        </ul>
+                      <div>
+                        Mobiles <FaAngleRight />
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
                       <div>
-                      Tablets <FaAngleRight />
+                        Tablets <FaAngleRight />
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
                       <div>
-                      Laptops <FaAngleRight />
+                        Laptops <FaAngleRight />
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
                       <div>
-                      Headphones <FaAngleRight />
+                        Headphones <FaAngleRight />
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
                       <div>
-                      Cameras <FaAngleRight />
+                        Cameras <FaAngleRight />
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
                       <div>
-                      Wearables <FaAngleRight />
+                        Wearables <FaAngleRight />
                       </div>
                     </a>
                   </li>
                   <li>
                     <a href="#" className="category-title">
-                      <div> 
-                      Accessories <FaAngleRight />
+                      <div>
+                        Accessories <FaAngleRight />
                       </div>
                     </a>
                   </li>
@@ -255,299 +243,20 @@ function Shop() {
               </div>
             </div>
             <div className="product-container">
-              {products.map((item) => ( 
-              <ShopCard
-              key={item.id}
-              image={item.image}
-              card_title={item.title}
-              reviews={item.rating.count}
-              discounted_price={item.price}
-              // actual_price={2000}
-              />
-              ))};
-              {/* <div className="card">
-                <img src={samsung} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      Samsung Galaxy S25 Ultra 5G Smartphone with Galaxy AI
-                      (Titanium Silverblue, 12GB RAM, 256GB Storage), Titanium
-                      Frame, Snapdragon 8 Elite, 200 MP Camera with ProVisual
-                      Engine and 5000mAh Battery
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      4,535
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु83,999</p>
-                    <p className="actual-price">रु1,04,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div>
-              <div className="card">
-                <img src={iphone} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      iPhone 16 Pro Max 1 TB: 5G Mobile Phone with Camera Control, 4K 120 fps Dolby Vision and a Huge Leap in Battery Life. Works with AirPods; Natural Titanium
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      3,286
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु2,73,440</p>
-                    <p className="actual-price">रु2,79,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div> */}
-              {/* <div className="card">
-                <img src={nothing} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      CMF Phone 2 Pro 5G (Light Green, 8GB RAM, 128GB Storage) | Dimensity 7300 Pro Processor | 5000mAh Battery | 33W Fast Charging | 2TB Expandable | 50MP+50MP+8MP Cameras | 16MP Selfie | 6.77" AMOLED Display
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      6,862
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु35,999</p>
-                    <p className="actual-price">रु40,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div>
-              <div className="card">
-                <img src={motorala} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      Motorola razr 60 Ultra (Pantone Mountain Trail, 16 GB RAM, 512 GB Storage) | Moto AI | Snapdragon® 8 Elite Mobile Platform | 6.9" AMOLED 165Hz Display | 50 MP + 50 MP + 50MP Triple Camera
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      2,342
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु1,59,999</p>
-                    <p className="actual-price">रु1,69,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div> */}
-              {/* <div className="card">
-                <img src={xiaomi} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      Xiaomi 15 (Black, 12GB/512 GB)| 50 MP Leica Triple Camera | SD 8 Elite | 1.5K CrystalRes Dynamic 1-120 Hz AMOLED | Hyper AI
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      1,504
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु1,04,999</p>
-                    <p className="actual-price">रु1,09,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div>
-              <div className="card">
-                <img src={vivo} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      vivo X200 Pro 5G AI Smartphone (Natural Green, 16GB RAM+ 512GB Storage) | Mediatek Dimensity 9400 Processor | AMOLED Display | Dual Nano-SIM | 6000mAh Battery
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      800
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु1,39,999</p>
-                    <p className="actual-price">रु1,49,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div>
-              <div className="card">
-                <img src={redmi} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      Redmi Note 14 5G (Titan Black, 6GB RAM 128GB Storage) | Global Debut MTK Dimensity 7025 Ultra | 2100 nits Segment Brightest 120Hz AMOLED | 50MP Sony LYT 600 OIS+EIS Triple Camera
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      1,200
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु23,999</p>
-                    <p className="actual-price">रु28,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div>
-              <div className="card">
-                <img src={iqoo} className="card-img-top" alt="watch" />
-                <div className="card-body">
-                  <a href="#">
-                    <h5 className="card-title">
-                      iQOO Z9s 5G (Titanium Matte, 8GB RAM, 128GB Storage) | 120 Hz 3D Curved AMOLED Display | 5500 mAh Ultra-Thin Battery | Dimesity 7300 5G Processor | Sony IMX882 OIS Camera with Aura Light
-                    </h5>
-                  </a>
-                  <div
-                    className="stars-container"
-                    style={{ padding: "0px", margin: "0px" }}
-                  >
-                    <a href="#">
-                      <div className="stars">
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStar size={20} />
-                        <MdStarHalf size={20} />
-                        <FaAngleDown />
-                      </div>
-                    </a>
-                    <a href="#" style={{ fontSize: "0.8rem" }}>
-                      2,456
-                    </a>
-                  </div>
-                  <div className="price">
-                    <p className="card-text">रु28,999</p>
-                    <p className="actual-price">रु32,999</p>
-                  </div>
-                  <a href="#" className="btn btn-primary">
-                    Add to Cart
-                  </a>
-                </div>
-              </div> */}
+              {products.map((item) => (
+                <ShopCard
+                  key={item.id}
+                  image={item.image}
+                  card_title={item.title}
+                  description= {item.description}
+                  category={item.category}
+                  reviews={item.rating.count}
+                  discounted_price={item.price}
+                  onAddToCart = {() => 
+                    handleAddToCart(item)}
+                  // actual_price={2000}
+                />
+              ))}
             </div>
           </div>
         </div>

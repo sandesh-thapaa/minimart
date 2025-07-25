@@ -45,16 +45,7 @@
 li{
     list-style: none;
 }
-.sub-categories ul li a{
-    font-size: 1rem;
-    font-weight: 400;
-}
-.sub-categories ul li a:hover{
-    color: #222222;
-}
-.category-selected{
-    color: #222222;
-}
+
 .vertical-line{
     border: 0.01px solid #EDEDED;
 }
@@ -202,6 +193,6 @@ li{
     justify-content: center;
     flex-wrap: wrap;
     padding: 12px;
-    gap: 18px;
+    gap: 26px;
     
 }
