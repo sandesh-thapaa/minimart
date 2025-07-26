@@ -4,8 +4,14 @@ import { MdStarHalf } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 
 import samsung from "../assets/samsung.png";
+import { useContext } from "react";
+import { CartContext } from "../context/cartContext";
 
 function ShopCard({image, card_title, description, category, reviews, discounted_price, actual_price, onAddToCart} ) {
+  const{addToCart} = useContext(CartContext)
+  const handleCart = ()=> {
+    addToCart({card_title, image, description, actual_price, discounted_price})
+  }
   return (
     <>
       <div className="card">
@@ -42,7 +48,7 @@ function ShopCard({image, card_title, description, category, reviews, discounted
             <p className="card-text"> रु{discounted_price}</p>
             <p className="actual-price">{actual_price}</p>
           </div>
-          <button onClick={onAddToCart} href="#" className="btn btn-primary">
+          <button onClick={handleCart} href="#" className="btn btn-primary">
             Add to Cart
           </button>
         </div>

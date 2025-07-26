@@ -1,16 +1,16 @@
-import { CartContext } from "./themeContext";
+import { CartContext } from "./cartContext";
 import { useState } from "react";
 
-export const Provider = ({children}) => {
-    const [cartItems, setCartItems] = useState('');
+export const CartProvider = ({children}) => {
+    const [cart, setCart] = useState([]);
     const addToCart = (product) => {
-        setCartItems()
+        setCart((prev) => [...prev,product])
     }   
     return(
         <>
-        <ThemeContext.Provider value={{theme, toggleTheme}}>
+        <CartContext.Provider value={{cart, addToCart}}>
         {children}
-        </ThemeContext.Provider>
+        </CartContext.Provider>
         </>
     )
 }

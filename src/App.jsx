@@ -4,6 +4,7 @@ import Home from"./pages/home"
 import Footer from"./components/footer"
 import Shop from "./pages/shop"
 import Contact from "./pages/contact"
+import Cart from "./pages/cart"
 import {useContext} from "react";
 import { ThemeContext } from "./context/themeContext"
 function App() {
@@ -21,6 +22,7 @@ function App() {
      <Route path="/" element={<Home/>}/>
      <Route path="/shop" element={<Shop/>}/>
      <Route path="/contact" element={<Contact/>}/>
+     <Route path="/cart" element={<Cart/>}/>
      </Routes>
      <Footer/>
     </div>

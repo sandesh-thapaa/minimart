@@ -196,3 +196,7 @@ li{
     gap: 26px;
     
 }
+.pagination-container{
+    display: flex;
+    justify-content: center;
+}

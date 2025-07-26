@@ -21,22 +21,32 @@ import { useEffect, useState } from "react";
 
 function Shop() {
   const [products, setProducts] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 6;
+
+  const start = (currentPage - 1) * itemsPerPage;
+  const end = start + itemsPerPage;
+  const itemsToShow = products.slice(start, end);
+
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  const handlePageChange = (pageNumber) => {
+    if (pageNumber >= 1 && pageNumber <= totalPages) {
+      setCurrentPage(pageNumber);
+    }
+  };
 
   useEffect(() => {
     axios
       .get("https://fakestoreapi.com/products")
       .then((res) => {
-        setProducts(res.data.slice(0,6));
+        setProducts(res.data);
         console.log(res.data);
       })
       .catch((err) => {
         console.log("Error fetching data", err);
       });
   }, []);
-
-  function handleAddToCart(product) {
-    console.log("Added to cart:", product);
-  }
 
   return (
     <>
@@ -243,20 +253,72 @@ function Shop() {
               </div>
             </div>
             <div className="product-container">
-              {products.map((item) => (
-                <ShopCard
-                  key={item.id}
-                  image={item.image}
-                  card_title={item.title}
-                  description= {item.description}
-                  category={item.category}
-                  reviews={item.rating.count}
-                  discounted_price={item.price}
-                  onAddToCart = {() => 
-                    handleAddToCart(item)}
-                  // actual_price={2000}
-                />
-              ))}
+              <div className="product-container">
+                {itemsToShow.map((item) => (
+                  <ShopCard
+                    key={item.id}
+                    image={item.image}
+                    card_title={item.title}
+                    description={item.description}
+                    category={item.category}
+                    reviews={item.rating.count}
+                    discounted_price={item.price}
+                    onAddToCart={() => handleAddToCart(item)}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="pagination-container">
+              <nav aria-label="Page navigation example">
+                <ul className="pagination">
+                  <li
+                    className={`page-item ${
+                      currentPage === 1 ? "disabled" : ""
+                    }`}
+                  >
+                    <a
+                      className="page-link"
+                      onClick={() => handlePageChange(currentPage - 1)}
+                      href="#"
+                      aria-label="Previous"
+                    >
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+
+                  {Array.from({ length: totalPages }).map((_, index) => (
+                    <li
+                      key={index}
+                      className={`page-item ${
+                        currentPage === index + 1 ? "active" : ""
+                      }`}
+                    >
+                      <a
+                        className="page-link"
+                        onClick={() => handlePageChange(index + 1)}
+                        href="#"
+                      >
+                        {index + 1}
+                      </a>
+                    </li>
+                  ))}
+
+                  <li
+                    className={`page-item ${
+                      currentPage === totalPages ? "disabled" : ""
+                    }`}
+                  >
+                    <a
+                      className="page-link"
+                      onClick={() => handlePageChange(currentPage + 1)}
+                      href="#"
+                      aria-label="Next"
+                    >
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
           </div>
         </div>
